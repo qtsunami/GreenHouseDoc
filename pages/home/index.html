@@ -1,0 +1,61 @@
+{< define "home/index.html" >}
+<!-- Page Header include Start -->
+{< template "header.html" >}
+<!-- Page Header include End -->
+
+<el-container>
+    <!-- Page Aside include Start -->
+    {< template "left.html" >}
+    <!-- Page Aside include Start -->
+    <!-- Main area Content --> 
+    <el-main>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        </el-breadcrumb>
+        <el-container class="main-container">
+            <el-table :data="tableData">
+                <el-table-column prop="date" label="日期" width="140">
+                </el-table-column>
+                <el-table-column prop="name" label="姓名" width="120">
+                </el-table-column>
+                <el-table-column prop="address" label="地址">
+                </el-table-column>
+            </el-table>
+
+        </el-container>
+        
+    </el-main>
+</el-container>
+
+{< template "footer.html" >}
+
+<script>
+    var vueApp = new Vue({
+        el: '#app',
+        data: {
+            activeIndex: '1',
+            activeIndex2: '1',
+            tableData: [],
+        },
+        computed: {
+            
+        },
+        created: function () {
+            const item = {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            };
+            this.tableData = Array(10).fill(item)
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                // console.log(key, keyPath);
+            }
+        }
+    })
+</script>
+{< end >}

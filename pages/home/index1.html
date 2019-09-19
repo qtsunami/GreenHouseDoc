@@ -1,0 +1,37 @@
+{< define "home/index1.html" >}
+
+{< template "header.html" >}
+<header>
+
+</header>
+
+
+{< template "footer.html" >}
+
+<script>
+    var vueApp = new Vue({
+        el: '#app',
+        data: {
+            activeIndex: '1',
+            activeIndex2: '1',
+            tableData: [],
+        },
+        computed: {
+            
+        },
+        created: function () {
+            const item = {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            };
+            this.tableData = Array(10).fill(item)
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                // console.log(key, keyPath);
+            }
+        }
+    })
+</script>
+{< end >}
