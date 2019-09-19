@@ -5,11 +5,12 @@
             <span slot="title">控制台</span>
         </el-menu-item>
         <el-submenu index="1">
-            <template slot="title"><i class="el-icon-s-tools"></i>个人中心</template>
+            <template slot="title"><i class="el-icon-user-solid"></i>个人中心</template>
             <el-menu-item-group>
                 <template slot="title">文档管理</template>
                 <el-menu-item index="1-1">我的项目</el-menu-item>
                 <el-menu-item index="1-5">我的文章</el-menu-item>
+                <el-menu-item index="1-6">我的笔记</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>
                 <template slot="title">信息</template>
@@ -18,24 +19,14 @@
                 <el-menu-item index="1-4">安全设置</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
+        <el-menu-item index="2">
+            <i class="el-icon-s-unfold"></i>
+            <span slot="title">用户列表</span>
+        </el-menu-item>
 
-        <el-submenu index="2">
-            <template slot="title"><i class="el-icon-menu"></i>系统管理</template>
-            <el-menu-item-group>
-                <template slot="title">用户管理</template>
-                <el-menu-item index="2-1">用户列表</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group>
-                <template slot="title">系统设置</template>
-                <el-menu-item index="2-3">网站配置</el-menu-item>
-                <el-menu-item index="2-4">上传配置</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group>
-                <template slot="title">文档管理</template>
-                <el-menu-item index="2-3">项目管理</el-menu-item>
-                <el-menu-item index="2-3">文章管理</el-menu-item>
-                <el-menu-item index="2-3">团队管理</el-menu-item>
-            </el-menu-item-group>
-        </el-submenu>
+        <el-menu-item index="4">
+            <i class="el-icon-s-tools"></i>
+            <span slot="title">系统配置</span>
+        </el-menu-item>
     </el-menu>
 </el-aside>
