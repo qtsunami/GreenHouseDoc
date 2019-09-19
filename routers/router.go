@@ -33,6 +33,14 @@ func InitRouter() *gin.Engine {
 		})
 	})
 
+	router.GET("/register", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "login/register.html", gin.H{
+			"title": "Login Page",
+		})
+	})
+
+	router.Post("/register")
+
 	router.GET("/v1", func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "home/index1.html", gin.H{
 			"title": "Home Page",
