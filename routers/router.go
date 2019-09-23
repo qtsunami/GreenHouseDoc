@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"GhdApi/apis"
 	"GhdApi/pkg/settings"
 	"net/http"
 
@@ -39,7 +40,7 @@ func InitRouter() *gin.Engine {
 		})
 	})
 
-	router.Post("/register")
+	router.POST("/register", apis.Register)
 
 	router.GET("/v1", func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "home/index1.html", gin.H{

@@ -121,9 +121,9 @@
         data: {
             form: {
                 email: 'aa@gmail.com',
-                nickname: '',
-                password: '',
-                verify_code: ''
+                nickname: 'rosa',
+                password: '123456',
+                verify_code: 'aw1f'
             },
             is_submitting: false,
         },
@@ -143,7 +143,7 @@
                 });
                 
                 request.done(function( msg ) {
-                    $( "#log" ).html( msg );
+                    console.log(msg);
                 });
                 
                 request.fail(function( jqXHR, textStatus ) {
