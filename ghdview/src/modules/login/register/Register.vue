@@ -11,7 +11,15 @@
                 <el-input type="text" 
                     v-model="ruleForm2.email" 
                     auto-complete="off" 
-                    placeholder="邮箱"
+                    placeholder="邮箱(必填)"
+                ></el-input>
+            </el-form-item>
+
+            <el-form-item prop="username">
+                <el-input type="text" 
+                    v-model="ruleForm2.username" 
+                    auto-complete="off" 
+                    placeholder="昵称"
                 ></el-input>
             </el-form-item>
 
@@ -53,12 +61,14 @@ export default {
         return {
             logining: false,
             ruleForm2: {
-                email: 'admin@gmail.com',
+                email: '',
+                username: '',
                 password: '',
                 verifycode: ''
             },
             rules2: {
-                email: [{required: true, message: 'please enter your account', trigger: 'blur'}],
+                email: [{required: true, message: 'please enter your email address', trigger: 'blur'}],
+                username: [{required: true, message: 'please enter your account', trigger: 'blur'}],
                 password: [{required: true, message: 'enter your password', trigger: 'blur'}],
                 verifycode: [{required: true, message: 'enter your verify code', trigger: 'blur'}]
             },
