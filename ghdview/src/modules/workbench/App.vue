@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container style="">
-      <el-header style="">
+      <el-header>
         <v-header></v-header>
       </el-header>
       <el-container>

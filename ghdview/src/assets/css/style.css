@@ -19,10 +19,10 @@ a {
     background-color: #FFF;
     color: #333;
     line-height: 61px;
-    height: 61px; 
+    height: 61px !important; 
     text-align: right; 
     font-size: 12px; 
-    border-bottom: solid 1px #e6e6e6
+    border-bottom: solid 1px #e6e6e6;
 }
 
 .el-aside {

@@ -21,8 +21,21 @@
         data() {
             return {
                 activeIndex: '1',
-                activeIndex2: '1'
+                topNav: {
+                    'index': '1',
+                    'project': '2',
+                    'article': '3',
+                    'booknote': '4',
+                    'workbench': '5'
+                }
             };
+        },
+        computed:{
+        },
+        created() {
+            let pathname = location.pathname;
+            let nav = location.pathname.substring(1, pathname.lastIndexOf('.'));
+            this.activeIndex = eval("this.topNav." + nav)
         },
         methods: {
             handleSelect(key, keyPath) {
