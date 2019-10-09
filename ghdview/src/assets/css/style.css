@@ -36,6 +36,13 @@ a {
     padding: 0;
 }
 
+.main-container {
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
 .el-breadcrumb {
     position: relative;
     border-radius: 0;

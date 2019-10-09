@@ -1,14 +1,12 @@
 <template>
     <div id="app" v-wechat-title="$route.meta.title">
         <el-container style="">
-        <el-header style="">
-            <v-header></v-header>
-        </el-header>
-        <el-container>
-            <el-main>
-            <router-view></router-view>
+			<el-header style="">
+				<v-header></v-header>
+			</el-header>
+			<el-main class="main-container">
+            	<router-view></router-view>
             </el-main>
-        </el-container>
         </el-container>
     </div>
 </template>
