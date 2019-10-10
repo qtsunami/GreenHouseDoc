@@ -5,6 +5,7 @@
 html,body{
     width: 100%;
     height: 100%;
+    font-family: Helvetica, -apple-system, "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft Yahei","Helvetica Neue",Helvetica;
 }
 #app {
     width: 100%;
