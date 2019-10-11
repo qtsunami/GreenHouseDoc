@@ -79,10 +79,11 @@ export default {
 
 .text {
     font-size: 14px;
+    text-indent: 2rem;
 }
 
 .item {
-    padding: 18px 0;
+    padding: 28px 18px;
 }
 
 .content-footer {

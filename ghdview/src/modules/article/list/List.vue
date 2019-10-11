@@ -50,8 +50,14 @@
                 </div>
                 <router-link class="el-link el-link--default" to="detail">点击查看全文</router-link>
             </div>
-
-
+            <div style="margin-top: 20px;">
+                <el-pagination
+                background
+                layout="prev, pager, next"
+                :total="1000">
+                </el-pagination>
+            </div>
+            
 
         </el-main>
 
