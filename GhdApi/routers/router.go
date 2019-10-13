@@ -3,7 +3,7 @@ package routers
 import (
 	"GhdApi/apis"
 	"GhdApi/pkg/settings"
-	"net/http"
+	// "net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,36 +17,20 @@ func InitRouter() *gin.Engine {
 
 	gin.SetMode(settings.RunMode)
 
-	router.Delims("{<", ">}")
 
-	router.LoadHTMLGlob("pages/**/*")
-	router.Static("/static", "./static")
+
+	project := router.Group("/project")
+	{
+		project.GET("/list", apis.List)
+	}
 
 	router.GET("/", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "home/index.html", gin.H{
-			"title": "Home Page",
-		})
+		ctx.JSON(200, gin.H{
+            "message": "testsssss",
+        })
 	})
 
-	router.GET("/login", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "login/login.html", gin.H{
-			"title": "Login Page",
-		})
-	})
-
-	router.GET("/register", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "login/register.html", gin.H{
-			"title": "Login Page",
-		})
-	})
-
-	router.POST("/register", apis.Register)
-
-	router.GET("/v1", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "home/index1.html", gin.H{
-			"title": "Home Page",
-		})
-	})
+	
 
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
