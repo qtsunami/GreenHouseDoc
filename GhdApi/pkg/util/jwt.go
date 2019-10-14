@@ -7,7 +7,7 @@ import (
 )
 
 
-var JwtSecret = []byte(settings.JWTSecret)
+var JwtSecret = []byte(settings.JwtSecret)
 
 type Claims struct {
 	Username string `json:"username"`
@@ -16,7 +16,7 @@ type Claims struct {
 }
 
 
-func GenerateToken(usename, password string) (string, error) {
+func GenerateToken(username, password string) (string, error) {
 	nowTime := time.Now()
 	expireTime := nowTime.Add(3 * time.Hour)
 
@@ -25,8 +25,8 @@ func GenerateToken(usename, password string) (string, error) {
 		password,
 		jwt.StandardClaims {
 			ExpiresAt: expireTime.Unix(),
-			Issuer: "GhdApi"
-		}
+			Issuer: "GhdApi",
+		},
 	}
 
 	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)

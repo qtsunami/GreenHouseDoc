@@ -6,6 +6,7 @@ import (
 	// "net/http"
 
 	"github.com/gin-gonic/gin"
+	"GhdApi/middleware/jwt"
 )
 
 // InitRouter Router group
@@ -18,8 +19,10 @@ func InitRouter() *gin.Engine {
 	gin.SetMode(settings.RunMode)
 
 
+	router.GET("/auth", apis.GetAuth)
 
 	project := router.Group("/project")
+	project.Use(jwt.JWT())
 	{
 		project.GET("/list", apis.List)
 	}

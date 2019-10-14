@@ -1,28 +1,56 @@
 package apis
 
 import (
+	"log"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
+
+	"github.com/astaxie/beego/validation"
+	"GhdApi/pkg/exception"
+	"GhdApi/pkg/util"
+	"GhdApi/models"
 )
 
-type user struct {
+type auth struct {
+	Username string `valid:"Required", MaxSize(50)`
+	Password string `valid:"Required", MaxSize(50)`
 }
 
-func Register(ctx *gin.Context) {
-	email := ctx.PostForm("email")
-	password := ctx.PostForm("password")
-	nickname := ctx.PostForm("nickname")
-	verifycode := ctx.PostForm("verify_code")
+// GetAuth 获取认证
+func GetAuth(ctx *gin.Context) {
+	username := ctx.Query("username")
+    password := ctx.Query("password")
 
-	ctx.JSON(http.StatusOK, gin.H{
-		"email":      email,
-		"password":   password,
-		"nickname":   nickname,
-		"verifycode": verifycode,
-	})
-}
+	valid := validation.Validation{}
+	a := auth{Username: username, Password: password}
+	ok, _ := valid.Valid(&a)
+	
+	data := make(map[string]interface{})
+    code := exception.INVALID_PARAMS
+    if ok {
+        isExist := models.CheckAuth(username, password)
+        if isExist {
+            token, err := util.GenerateToken(username, password)
+            if err != nil {
+                code = exception.ERROR_AUTH_TOKEN
+            } else {
+                data["token"] = token
+                
+                code = exception.SUCCESS
+            }
 
-func Login(ctx *gin.Context) {
+        } else {
+            code = exception.ERROR_AUTH
+        }
+    } else {
+        for _, err := range valid.Errors {
+            log.Println(err.Key, err.Message)
+        }
+    }
 
+    ctx.JSON(http.StatusOK, gin.H{
+        "code" : code,
+        "msg" : exception.GetMsg(code),
+        "data" : data,
+    })
 }
