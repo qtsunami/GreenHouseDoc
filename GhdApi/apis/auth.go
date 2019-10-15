@@ -1,14 +1,14 @@
 package apis
 
 import (
-	"log"
 	"net/http"
 	"github.com/gin-gonic/gin"
 
 	"github.com/astaxie/beego/validation"
 	"GhdApi/pkg/exception"
 	"GhdApi/pkg/util"
-	"GhdApi/models"
+    "GhdApi/models"
+    "GhdApi/pkg/logging"
 )
 
 type auth struct {
@@ -44,7 +44,8 @@ func GetAuth(ctx *gin.Context) {
         }
     } else {
         for _, err := range valid.Errors {
-            log.Println(err.Key, err.Message)
+            // log.Println(err.Key, err.Message)
+            logging.Info(err.Key, err.Message)
         }
     }
 
