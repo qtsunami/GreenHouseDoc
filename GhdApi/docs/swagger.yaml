@@ -1,0 +1,36 @@
+info:
+  contact: {}
+  license: {}
+paths:
+  /auth:
+    get:
+      consumes:
+      - application/json
+      description: get accounts
+      parameters:
+      - description: username
+        in: query
+        name: username
+        type: string
+      - description: password
+        in: query
+        name: password
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: List accounts
+  /project/list:
+    get:
+      consumes:
+      - application/json
+      description: get project list
+      produces:
+      - application/json
+      responses: {}
+      summary: List project
+swagger: "2.0"

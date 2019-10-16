@@ -7,6 +7,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"GhdApi/middleware/jwt"
+
+	_ "GhdApi/docs"
+	"github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 // InitRouter Router group
@@ -18,7 +22,7 @@ func InitRouter() *gin.Engine {
 
 	gin.SetMode(settings.RunMode)
 
-
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.GET("/auth", apis.GetAuth)
 
 	project := router.Group("/project")

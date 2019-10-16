@@ -6,11 +6,14 @@ import (
 )
 
 
-// List 获取项目列表
+// List godoc
+// @Summary List project
+// @Description get project list
+// @Accept  json
+// @Produce  json
+// @Header 200 {string} Token "qwerty"
+// @Router /project/list [get]
 func List(ctx *gin.Context) {
-
-
-	
 
 	ctx.JSON(http.StatusOK, gin.H{
         "code" : 0,
